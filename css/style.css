@@ -1,0 +1,210 @@
+/*----------Flower memory CSS file--------------
+by Antonia Hommers, February 2019
+----------------------------------------------*/
+
+/* General Styles*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Dancing Script', cursive;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: #585858;
+    text-shadow: 3px 3px 3px #fdcbee;
+}
+
+p {
+    margin: 20px 0;
+    font-size: 2rem;
+}
+
+p > span {
+    text-shadow: 3px 3px 3px #fdcbee;
+}
+
+.hide {
+    display: none;
+}
+
+/*background*/
+
+.background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45vw;
+    z-index: -1;
+}
+
+/*header*/
+
+.header {
+    position: relative;
+    width: 985px;
+    margin: 30px 12% 30px 8%;
+}
+
+ul {
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(218, 218, 218);
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+ul li {
+    float: left;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #585858;
+    background-color: #fff;
+    border-radius: 10px;
+    text-shadow: 3px 3px 3px #fdcbee;
+}
+
+li:nth-child(2), li:nth-child(1) {
+    padding-right: 0;
+}
+
+li span {
+    display: inline-block;
+    width: 50px;
+}
+
+.question:active, li .redo:active {
+    transform: rotate(360deg);
+    transition: .3s;
+}
+
+/*Memory game*/
+
+.memory-container {
+    width: 1000px;
+    height: 750px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 12% 0 8%;
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: calc(20% - 10px);
+    height: calc(25% - 10px);
+    position: relative;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: .2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    border: 3px solid rgb(218, 218, 218);
+    backface-visibility: hidden;
+}
+
+.back {
+    background-color: rgb(218, 218, 218);
+}
+
+.front {
+    transform: rotateY(180deg);
+    left: 30px;
+}
+
+/*Win*/
+
+.winoverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.7);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.winoverlay > div {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 550px;
+    height: 450px;
+    border: 3px solid rgb(218, 218, 218);
+    padding: 30px;
+    margin: 250px auto 0 auto;
+    text-align: center;
+}
+
+button {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    width: 170px;
+    height: 60px;
+    border: 3px solid rgb(218, 218, 218);
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000;
+    margin-top: 20px;
+}
+
+button:hover {
+    text-shadow: 3px 3px 3px #fdcbee;
+    cursor: pointer;
+}
+
+/*About*/
+
+.about {
+    position: absolute;
+    top: 0;
+    left: 1000px;
+    margin-right: 30px;
+    border: 3px solid rgb(218, 218, 218);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    width: 500px;
+    height: 836px;
+}
+
+.about p {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 1rem;
+}
+
+.about a {
+    display: inline-block;
+    color: black;
+    text-shadow: 3px 3px 3px #fdcbee;
+}
+
+.about a:hover {
+    background-color: rgb(218, 218, 218);
+}

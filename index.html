@@ -1,131 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Flower Memory</title>
-  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>2048 Game</title>
 </head>
 <body>
-  <div class="winoverlay hide">
-    <div>
-      <h1>You won!</h1>
-      <p>You took <span class="finaltime">0</span> seconds and 
-        <span class="finalmoves">0</span> moves to solve this memory.</p>
-      <p class="highscoreslogan"></p>
-      <button class="redo">Try again?</button>
+    <div class="container">
+        <div class="game">
+            <div class="header">
+                <h1>2048</h1>
+                <div class="move-container">
+                    <div class="move-title">moves:</div>
+                    <span id="moves">0</span>
+                </div>
+                <div class="undo">
+                    undo
+                </div>
+                <div class="reload">
+                    reset
+                </div>
+            </div>
+            
+            
+            <div id="result"></div>
+
+            <div class="grid"></div>
+        </div>
+
+        <div class="save">Load saved game</div>        
+
+        <div class="rules">
+            <h2>Rules</h2>
+            <p>Join two numbers of the same amount together to add them horizontally or vertically by Swiping Up, Down, Left or Right (for mobile) or using the arrow Keys on your keyboard for PC.</p>
+            <p><b>Goal</b> of the game is to reach the number 2048.</p>
+            <p>You <b>lose</b> when every square on the borad is filled with an number before reaching 2048.</p>
+            <p>Your game is <b>saved</b> automatically. You can close your browser and return to yout game later, by clicking the button: "Load saved game".</p>
+        </div>
     </div>
-  </div>
-  <img class="background" src="images/background.jpg">
-  <div class="header">
-    <h1>Flower Memory</h1>
-    <ul>
-      <li>time: <span class="time">0</span></li>
-      <li>moves: <span class="moves">0</span>highscore: <span class="highscore">0</span></li>
-      <li><i class="fas fa-redo-alt redo"></i></li>
-      <li><i class="fas fa-question question"></i></li>
-    </ul>
-    <div class="about hide">
-      <h1>Rules</h1>
-      <p>Turn two cards, if they show the same flower they will stay turned, if not they will flip back.</p>
-      <p>You can only flip two cards at once and have to wait until they flip back to try another one.</p>
-      <p>Your moves to solve this memory will be counted and stored, so you can challenge yourself into beating your highscore with less moves!</p>
-      <br>
-      <hr>
-      <br>
-      <h1>About</h1>
-      <p>This is a little "valentines day special" project I made for the <a href="https://github.com/zero-to-mastery/coding_challenge-14" target="_blank">February coding challenge</a> for this <a href="https://www.udemy.com/the-complete-web-developer-zero-to-mastery/" target="_blank">Udemy course</a></p>
-      <p>You can find my repository here: <a href="https://github.com/Belnako/coding_challenge-14" target="_blank"><i class="fab fa-github fa-2x"></i></a></p>
-      <p>All picutres used in this project originate from <a href="https://www.pexels.com/" target="_blank">pexels.com</a></p>
-      <br>
-      <hr>
-      <br>
-      <p><i class="far fa-copyright"></i> Antonia Hommers, Germany</p>
-    </div>
-  </div>
-  <div class="memory-container">
-    <div class="memory-card" data-name="cherry">
-      <img class="front" src="images/card-cherry.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="cherry">
-      <img class="front" src="images/card-cherry.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="crocus">
-      <img class="front" src="images/card-crocus.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="crocus">
-      <img class="front" src="images/card-crocus.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="dahlia">
-      <img class="front" src="images/card-dahlia.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="dahlia">
-      <img class="front" src="images/card-dahlia.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="daisy">
-      <img class="front" src="images/card-daisy.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="daisy">
-      <img class="front" src="images/card-daisy.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="lily">
-      <img class="front" src="images/card-lily.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="lily">
-      <img class="front" src="images/card-lily.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="magnolia">
-      <img class="front"src="images/card-magnolia.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="magnolia">
-      <img class="front"src="images/card-magnolia.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="rose">
-      <img class="front" src="images/card-rose.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="rose">
-      <img class="front" src="images/card-rose.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="snowdrop">
-      <img class="front" src="images/card-snowdrop.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="snowdrop">
-      <img class="front" src="images/card-snowdrop.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="sunflower">
-      <img class="front" src="images/card-sunflower.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="sunflower">
-      <img class="front" src="images/card-sunflower.jpeg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="tulip">
-      <img class="front" src="images/card-tulip.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-    <div class="memory-card" data-name="tulip">
-      <img class="front" src="images/card-tulip.jpg">
-      <img class="back" src="images/flowertilegreybg.jpg">
-    </div>
-  </div>
-  <script type="text/javascript" src="js\script.js"></script>
+    
+
+    <script src="script.js"></script>
 </body>
 </html>
